@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#08120f" />
+    <title>EcoSurvival — Wildlands</title>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="game-canvas"></canvas>
+
+      <div class="topbar">
+        <a class="brand" href="#" aria-label="EcoSurvival home">
+          <span class="brand-mark">E</span>
+          <span><strong>ECO<span> SURVIVAL</span></strong><small>WILDLANDS PROTOCOL</small></span>
+        </a>
+        <div class="server-status"><span class="status-dot"></span> SOLO EXPLORATION <span class="status-divider">/</span> BUILD 0.1.0</div>
+        <button id="pause-button" class="icon-button" aria-label="Pause game">Ⅱ</button>
+      </div>
+
+      <section class="mission-card glass">
+        <div class="eyebrow"><span class="eyebrow-line"></span> FIELD OBJECTIVE</div>
+        <h1>Into the <em>Wild.</em></h1>
+        <p>Explore the forest. Gather what you need. Stay alive.</p>
+        <div class="objective-row"><span class="objective-icon">⌖</span><span>Collect natural resources</span><span id="objective-count" class="objective-count">0 / 5</span></div>
+        <div class="progress-track"><span id="objective-progress"></span></div>
+      </section>
+
+      <section class="survival-panel glass">
+        <div class="panel-heading"><span>VITAL SIGNS</span><span class="live-label"><i></i> LIVE</span></div>
+        <div class="vital-row"><span class="vital-icon heart">♥</span><div class="vital-info"><div class="vital-label"><span>HEALTH</span><b id="health-value">100</b></div><div class="meter"><i id="health-bar" class="health-fill"></i></div></div></div>
+        <div class="vital-row"><span class="vital-icon food">⌁</span><div class="vital-info"><div class="vital-label"><span>HUNGER</span><b id="hunger-value">86</b></div><div class="meter"><i id="hunger-bar" class="hunger-fill"></i></div></div></div>
+        <div class="vital-row"><span class="vital-icon water">◈</span><div class="vital-info"><div class="vital-label"><span>HYDRATION</span><b id="thirst-value">92</b></div><div class="meter"><i id="thirst-bar" class="thirst-fill"></i></div></div></div>
+        <div class="vital-row"><span class="vital-icon energy">ϟ</span><div class="vital-info"><div class="vital-label"><span>STAMINA</span><b id="stamina-value">100</b></div><div class="meter"><i id="stamina-bar" class="stamina-fill"></i></div></div></div>
+      </section>
+
+      <div class="coordinates glass"><span class="coord-dot"></span><span>POSITION</span><strong id="coordinates">X 000 · Z 000</strong></div>
+
+      <div class="crosshair"><span></span><i></i></div>
+      <div id="interaction-hint" class="interaction-hint glass hidden"><kbd>E</kbd><span id="interaction-text">Collect resource</span></div>
+      <div id="toast" class="toast glass">Welcome to the wildlands.</div>
+
+      <section class="bottom-hud">
+        <div class="controls-hint glass"><span class="hint-title">FIELD CONTROLS</span><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> Move</span><span><kbd>SHIFT</kbd> Sprint</span><span><kbd>SPACE</kbd> Jump</span><span><kbd>E</kbd> Gather</span><span><kbd>MOUSE</kbd> Look</span></div>
+        <div class="hotbar glass">
+          <div class="hotbar-title">QUICK INVENTORY <span>01 — 04</span></div>
+          <div class="slots">
+            <div class="slot selected"><small>1</small><span class="slot-icon">🪵</span><b id="wood-count">0</b><label>WOOD</label></div>
+            <div class="slot"><small>2</small><span class="slot-icon">◆</span><b id="stone-count">0</b><label>STONE</label></div>
+            <div class="slot"><small>3</small><span class="slot-icon">＋</span><b>—</b><label>MEDKIT</label></div>
+            <div class="slot"><small>4</small><span class="slot-icon">⌁</span><b>—</b><label>WATER</label></div>
+          </div>
+        </div>
+      </section>
+
+      <div id="start-overlay" class="overlay">
+        <div class="start-card glass">
+          <div class="start-logo">E</div>
+          <div class="eyebrow">A SURVIVAL EXPERIENCE</div>
+          <h2>THE WORLD<br/><em>IS YOURS.</em></h2>
+          <p>Every resource matters. Every choice counts.<br/>Find your footing in the wildlands.</p>
+          <button id="start-button" class="primary-button">ENTER THE WILDLANDS <span>↗</span></button>
+          <small>BEST EXPERIENCED ON DESKTOP · HEADPHONES RECOMMENDED</small>
+        </div>
+      </div>
+
+      <div id="pause-overlay" class="overlay hidden">
+        <div class="start-card glass pause-card">
+          <div class="eyebrow">EXPEDITION PAUSED</div>
+          <h2>TAKE A<br/><em>BREATHER.</em></h2>
+          <p>Your expedition is waiting.</p>
+          <button id="resume-button" class="primary-button">RESUME EXPEDITION <span>↗</span></button>
+        </div>
+      </div>
+      <div class="version-label">ECOSYSTEM SIMULATION <span>•</span> PROTOTYPE 01</div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
